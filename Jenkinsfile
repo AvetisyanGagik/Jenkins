@@ -33,6 +33,12 @@ pipeline {
           steps {
                 echo 'build docker image'
             script {
+                def call(){
+                    def dockerTool = tool name: 'docker'
+                    env.PATH = "${dockerTool}/bin:${env.PATH}"
+                    sh 'docker -v'
+                }
+                call()
                     def branchName = env.BRANCH_NAME
                     def imageName = branchName == 'main' ? 'nodemain:v1.0' : 'nodedev:v1.0'
                     
