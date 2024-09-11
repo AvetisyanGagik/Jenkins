@@ -1,6 +1,10 @@
 pipeline {
   agent any 
 
+  environment {
+          PATH = "/usr/local/bin:${env.PATH}"  // Adjust the path as necessary
+      }
+    
   stages {
 
     
