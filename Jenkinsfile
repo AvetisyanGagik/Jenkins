@@ -3,6 +3,12 @@ pipeline {
   tools {nodejs "node"}
   
   stages {
+    stage('Check PATH') {
+            steps {
+                sh 'echo $PATH'
+                sh 'docker --version'
+            }
+        }
 
     
       stage('checkout'){
